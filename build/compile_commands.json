@@ -1,0 +1,62 @@
+[
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Packet.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Packet.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Packet.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Packet.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Node.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Node.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Node.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Node.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Host.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Host.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Host.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Host.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Router.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Router.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Router.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Router.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\CSMACDMedium.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\CSMACDMedium.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/CSMACDMedium.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/CSMACDMedium.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\StatisticsCollector.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\StatisticsCollector.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/StatisticsCollector.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/StatisticsCollector.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\TrafficStrategies.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\TrafficStrategies.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/TrafficStrategies.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/TrafficStrategies.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\NodeFactory.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\NodeFactory.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/NodeFactory.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/NodeFactory.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\SimulationFacade.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\SimulationFacade.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/SimulationFacade.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/SimulationFacade.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\main.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\main.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/main.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/main.cpp.obj"
+}
+]

@@ -1,0 +1,3 @@
+C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/CMakeFiles/network_simulator.dir
+C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/CMakeFiles/edit_cache.dir
+C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/CMakeFiles/rebuild_cache.dir

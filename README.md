@@ -96,61 +96,27 @@ project/
 
 После установки **полностью закройте PowerShell и откройте снова** (или перезапустите Cursor).
 
-**Если пишет «cmake не распознано»** — терминал не видит PATH (часто в Cursor). Сделайте одно из:
+**Если пишет «cmake не распознано»** — перезапустите терминал/Cursor или вызывайте CMake по полному пути:
 
-1. **Закройте все терминалы в Cursor** и откройте новый (`Terminal` → `New Terminal`).  
-   В проекте настроен `.vscode/settings.json` — новый терминал подхватит CMake.
-
-2. **Или** в текущем окне PowerShell:
 ```powershell
-. .\setup-env.ps1
-cmake --version
-```
-
-3. **Или** вызывайте CMake по полному пути (работает всегда):
-```powershell
-& "C:\Program Files\CMake\bin\cmake.exe" -S . -B build
+& "C:\Program Files\CMake\bin\cmake.exe" -S . -B build -G Ninja
 & "C:\Program Files\CMake\bin\cmake.exe" --build build
 .\build\network_simulator.exe
-```
-
-4. **Или** сборка одним скриптом:
-```powershell
-.\cmake-build.ps1
 ```
 
 ---
 
 ### Сборка и запуск (CMake)
 
-**Сначала** подключите окружение (один раз на сессию терминала):
-
 ```powershell
 cd "C:\Users\gabdu\OneDrive\Рабочий стол\вуз\пкс\project"
-. .\setup-env.ps1
-```
 
-Если раньше была ошибка про `nmake`, удалите старый кэш:
-
-```powershell
-Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
-```
-
-Сборка и запуск:
-
-```powershell
-cmake -S . -B build
+cmake -S . -B build -G Ninja
 cmake --build build
 .\build\network_simulator.exe
 ```
 
-Альтернатива — пресет (то же самое, генератор Ninja):
-
-```powershell
-cmake --preset default
-cmake --build --preset default
-.\build\network_simulator.exe
-```
+Если раньше была ошибка про `nmake`, удалите папку `build` и повторите.
 
 С аргументами:
 
@@ -177,9 +143,8 @@ ctest --output-on-failure
 CMake выбрал генератор Visual Studio (NMake), а он у вас не установлен. Исправление:
 
 ```powershell
-. .\setup-env.ps1
 Remove-Item -Recurse -Force build
-cmake -S . -B build
+cmake -S . -B build -G Ninja
 cmake --build build
 ```
 

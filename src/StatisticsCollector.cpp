@@ -1,4 +1,5 @@
 #include "StatisticsCollector.h"
+#include "SimulationParameters.h"
 #include <iostream>
 #include <iomanip>
 
@@ -15,13 +16,17 @@ void StatisticsCollector::onEvent(MediumEvent event, const Packet& pkt) {
             break;
         case MediumEvent::PACKET_DELIVERED:
             ++packetsDelivered_;
+            {
+                double delay = SimulationParameters::getInstance().currentTime - pkt.creationTime;
+                if (delay > 0.0) {
+                    totalDelay_ += delay;
+                }
+            }
             break;
         case MediumEvent::COLLISION_DETECTED:
             ++collisions_;
             break;
     }
-    // Подавляем предупреждение компилятора о неиспользуемом параметре
-    (void)pkt;
 }
 
 /**
@@ -53,4 +58,6 @@ void StatisticsCollector::reset() {
     packetsSent_      = 0;
     packetsDelivered_ = 0;
     collisions_       = 0;
+    packetsDropped_   = 0;
+    totalDelay_       = 0.0;
 }

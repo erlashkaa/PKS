@@ -1,23 +1,17 @@
-cmake_minimum_required(VERSION 3.16)
-project(NetworkSimulator CXX)
+cmake_minimum_required(VERSION 3.10)
+project(NetworkSimulator VERSION 1.0.0 LANGUAGES CXX)
 
-# Стандарт C++17 (нужен для std::optional и std::make_shared)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Включаем предупреждения компилятора (хорошая практика)
 if(MSVC)
-    add_compile_options(/W4)
+    add_compile_options(/W4 /utf-8)
 else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# Все заголовочные файлы находятся в папке include/
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# Список всех исходных файлов
-set(SOURCES
+add_executable(network_simulator
     src/Packet.cpp
     src/Node.cpp
     src/Host.cpp
@@ -25,24 +19,25 @@ set(SOURCES
     src/CSMACDMedium.cpp
     src/StatisticsCollector.cpp
     src/TrafficStrategies.cpp
+    src/PoissonStrategy.cpp
+    src/NetworkVisualizer.cpp
     src/NodeFactory.cpp
     src/SimulationFacade.cpp
     src/main.cpp
 )
 
-# Создаём исполняемый файл
-add_executable(network_simulator ${SOURCES})
+target_include_directories(network_simulator PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# Инструкции по сборке:
-#
-#   Windows (PowerShell / Developer Command Prompt):
-#     mkdir build && cd build
-#     cmake .. -G "NMake Makefiles"   (или -G "Visual Studio 17 2022")
-#     cmake --build .
-#     .\network_simulator.exe
-#
-#   Linux / macOS (bash):
-#     mkdir build && cd build
-#     cmake ..
-#     make
-#     ./network_simulator
+if(NOT DEFINED INSTALL_GTEST)
+    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+endif()
+
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
+)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+add_subdirectory(tests)

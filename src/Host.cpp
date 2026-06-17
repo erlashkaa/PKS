@@ -62,11 +62,13 @@ void Host::trySend(double currentTime) {
     // Канал свободен — отправляем пакет
     const Packet& pkt = sendQueue_.front();
 
-    std::cout << std::fixed << std::setprecision(3)
-              << "[t=" << currentTime << "] "
-              << name_ << " → пытается отправить пакет #" << pkt.id
-              << " [" << pkt.srcIP << " → " << pkt.dstIP << "] "
-              << "через " << medium_->getName() << "\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << std::fixed << std::setprecision(3)
+                  << "[t=" << currentTime << "] "
+                  << name_ << " → пытается отправить пакет #" << pkt.id
+                  << " [" << pkt.srcIP << " → " << pkt.dstIP << "] "
+                  << "через " << medium_->getName() << "\n";
+    }
 
     bool accepted = medium_->sendPacket(pkt, mac_, currentTime);
 
@@ -74,9 +76,22 @@ void Host::trySend(double currentTime) {
         // Пакет принят средой — убираем из очереди
         sendQueue_.pop();
         ++sentCount_;
+        currentPacketRetries_ = 0; // Сброс
+    } else {
+        // Если не принят (коллизия внутри sendPacket) — считаем попытки
+        currentPacketRetries_++;
+        if (currentPacketRetries_ >= SimulationParameters::getInstance().maxRetries) {
+            if (SimulationParameters::getInstance().enableLogs) {
+                std::cout << std::fixed << std::setprecision(3)
+                          << "[t=" << currentTime << "] " << name_
+                          << " ⚠ Пакет #" << pkt.id << " отброшен после "
+                          << currentPacketRetries_ << " коллизий!\n";
+            }
+            sendQueue_.pop();          // Отбрасываем пакет
+            ++droppedCount_;           // Счётчик дропов
+            currentPacketRetries_ = 0; // Сброс для следующего пакета
+        }
     }
-    // Если не принят (коллизия внутри sendPacket) — оставляем в очереди,
-    // CSMACDMedium сам разблокирует канал через backoff
 }
 
 /**
@@ -90,9 +105,11 @@ void Host::receivePacket(const Packet& pkt) {
         return;
     }
     ++receivedCount_;
-    std::cout << std::fixed << std::setprecision(3)
-              << "[t=" << SimulationParameters::getInstance().currentTime << "] "
-              << name_ << " ✓ получил пакет #" << pkt.id
-              << " от " << pkt.srcIP
-              << " | payload: \"" << pkt.payload << "\"\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << std::fixed << std::setprecision(3)
+                  << "[t=" << SimulationParameters::getInstance().currentTime << "] "
+                  << name_ << " ✓ получил пакет #" << pkt.id
+                  << " от " << pkt.srcIP
+                  << " | payload: \"" << pkt.payload << "\"\n";
+    }
 }

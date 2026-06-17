@@ -20,8 +20,10 @@ std::shared_ptr<Host> SimulationFacade::addHost(
     auto host = std::dynamic_pointer_cast<Host>(node);
     hosts_.push_back(host);
 
-    std::cout << "[Топология] Добавлен Host: " << name
-              << " | MAC=" << mac << " | IP=" << ip << "\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Топология] Добавлен Host: " << name
+                  << " | MAC=" << mac << " | IP=" << ip << "\n";
+    }
     return host;
 }
 
@@ -34,8 +36,10 @@ std::shared_ptr<Router> SimulationFacade::addRouter(
     auto router = std::dynamic_pointer_cast<Router>(node);
     routers_.push_back(router);
 
-    std::cout << "[Топология] Добавлен Router: " << name
-              << " | MAC=" << mac << " | IP=" << ip << "\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Топология] Добавлен Router: " << name
+                  << " | MAC=" << mac << " | IP=" << ip << "\n";
+    }
     return router;
 }
 
@@ -51,9 +55,11 @@ std::shared_ptr<CSMACDMedium> SimulationFacade::addMedium(
 
     media_.push_back(medium);
 
-    std::cout << "[Топология] Добавлена среда: " << name
-              << " | BW=" << bandwidth / 1e6 << " Мбит/с"
-              << " | delay=" << propagDelay * 1000 << " мс\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Топология] Добавлена среда: " << name
+                  << " | BW=" << bandwidth / 1e6 << " Мбит/с"
+                  << " | delay=" << propagDelay * 1000 << " мс\n";
+    }
     return medium;
 }
 
@@ -67,8 +73,10 @@ void SimulationFacade::connectNodeToMedium(
     node->connectTo(medium);
     medium->attachNode(node);
 
-    std::cout << "[Топология] " << node->getName()
-              << " подключён к [" << medium->getName() << "]\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Топология] " << node->getName()
+                  << " подключён к [" << medium->getName() << "]\n";
+    }
 }
 
 void SimulationFacade::connectRouterInterface(
@@ -80,9 +88,11 @@ void SimulationFacade::connectRouterInterface(
     router->connectInterface(interfaceId, medium);
     medium->attachNode(router);
 
-    std::cout << "[Топология] " << router->getName()
-              << " интерфейс-" << interfaceId
-              << " подключён к [" << medium->getName() << "]\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Топология] " << router->getName()
+                  << " интерфейс-" << interfaceId
+                  << " подключён к [" << medium->getName() << "]\n";
+    }
 }
 
 // ---- Управление симуляцией ----
@@ -108,13 +118,15 @@ void SimulationFacade::startSimulation(double durationSeconds) {
     // Общее количество тиков
     long long totalTicks = static_cast<long long>(durationSeconds / tickStep);
 
-    std::cout << "\n";
-    std::cout << "════════════════════════════════════════════\n";
-    std::cout << "  СИМУЛЯЦИЯ ЗАПУЩЕНА\n";
-    std::cout << "  Длительность : " << durationSeconds << " с\n";
-    std::cout << "  Шаг тика     : " << tickStep * 1000 << " мс\n";
-    std::cout << "  Всего тиков  : " << totalTicks << "\n";
-    std::cout << "════════════════════════════════════════════\n\n";
+    if (params.enableLogs) {
+        std::cout << "\n";
+        std::cout << "════════════════════════════════════════════\n";
+        std::cout << "  СИМУЛЯЦИЯ ЗАПУЩЕНА\n";
+        std::cout << "  Длительность : " << durationSeconds << " с\n";
+        std::cout << "  Шаг тика     : " << tickStep * 1000 << " мс\n";
+        std::cout << "  Всего тиков  : " << totalTicks << "\n";
+        std::cout << "════════════════════════════════════════════\n\n";
+    }
 
     // Главный цикл симуляции
     for (long long tick = 0; tick < totalTicks && running_; ++tick) {
@@ -134,25 +146,31 @@ void SimulationFacade::startSimulation(double durationSeconds) {
 
     running_ = false;
 
-    std::cout << "\n════════════════════════════════════════════\n";
-    std::cout << "  СИМУЛЯЦИЯ ЗАВЕРШЕНА (t=" << durationSeconds << "с)\n";
-    std::cout << "════════════════════════════════════════════\n";
+    if (params.enableLogs) {
+        std::cout << "\n════════════════════════════════════════════\n";
+        std::cout << "  СИМУЛЯЦИЯ ЗАВЕРШЕНА (t=" << durationSeconds << "с)\n";
+        std::cout << "════════════════════════════════════════════\n";
+    }
 }
 
 void SimulationFacade::stopSimulation() {
     running_ = false;
-    std::cout << "[Facade] Симуляция остановлена досрочно.\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "[Facade] Симуляция остановлена досрочно.\n";
+    }
 }
 
 void SimulationFacade::printStats() const {
-    // Выводим статистику из хостов
-    std::cout << "\n--- Статистика хостов ---\n";
-    for (const auto& host : hosts_) {
-        std::cout << "  " << host->getName()
-                  << " | Отправлено: " << host->getSentCount()
-                  << " | Получено: "   << host->getReceivedCount() << "\n";
-    }
+    if (SimulationParameters::getInstance().enableLogs) {
+        // Выводим статистику из хостов
+        std::cout << "\n--- Статистика хостов ---\n";
+        for (const auto& host : hosts_) {
+            std::cout << "  " << host->getName()
+                      << " | Отправлено: " << host->getSentCount()
+                      << " | Получено: "   << host->getReceivedCount() << "\n";
+        }
 
-    // Выводим агрегированную статистику среды (Observer)
-    stats_->printReport();
+        // Выводим агрегированную статистику среды (Observer)
+        stats_->printReport();
+    }
 }

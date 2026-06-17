@@ -1,5 +1,7 @@
 -xc++
 -std=c++17
 -Iinclude
+-IC:/tmp/netsim_deps/googletest-src/googletest/include
+-IC:/tmp/netsim_deps/googletest-src/googlemock/include
 -Wall
 -Wextra

@@ -1,0 +1,16 @@
+services:
+  simulator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netsim-simulator
+    tty: true
+    command: ["./network_simulator", "--duration", "5"]
+
+  simulator-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netsim-tests
+    tty: true
+    command: ["test"]

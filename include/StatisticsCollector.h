@@ -23,6 +23,14 @@ public:
     int getPacketsSent()      const { return packetsSent_;      }
     int getPacketsDelivered() const { return packetsDelivered_; }
     int getCollisions()       const { return collisions_;       }
+    int getPacketsDropped()   const { return packetsDropped_;   }
+    double getAverageDelay()  const { return packetsDelivered_ > 0 ? (totalDelay_ / packetsDelivered_) : 0.0; }
+
+    // Вручную зафиксировать сброс пакета (например, на роутере или хосте)
+    void recordDrop() { ++packetsDropped_; }
+
+    // Добавить задержку для доставленного пакета
+    void recordDelay(double delay) { totalDelay_ += delay; }
 
     // Вывести итоговую статистику в stdout
     void printReport() const;
@@ -34,4 +42,6 @@ private:
     int packetsSent_      = 0;
     int packetsDelivered_ = 0;
     int collisions_       = 0;
+    int packetsDropped_   = 0;
+    double totalDelay_    = 0.0;
 };

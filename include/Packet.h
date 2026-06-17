@@ -25,16 +25,21 @@ struct Packet {
     // Размер пакета в байтах (используется для расчёта времени передачи)
     uint32_t sizeBytes;
 
+    // Время создания пакета (для расчета задержки)
+    double creationTime = 0.0;
+
     // Счётчик глобальных ID (статический, общий для всех пакетов)
     static uint32_t nextId;
 
     // Конструктор: заполняет поля и автоматически присваивает уникальный ID
     Packet(const std::string& srcMAC, const std::string& dstMAC,
            const std::string& srcIP,  const std::string& dstIP,
-           const std::string& payload, uint32_t sizeBytes = 64)
+           const std::string& payload, uint32_t sizeBytes = 64,
+           double creationTime = 0.0)
         : id(nextId++),
           srcMAC(srcMAC), dstMAC(dstMAC),
           srcIP(srcIP),   dstIP(dstIP),
-          payload(payload), sizeBytes(sizeBytes)
+          payload(payload), sizeBytes(sizeBytes),
+          creationTime(creationTime)
     {}
 };

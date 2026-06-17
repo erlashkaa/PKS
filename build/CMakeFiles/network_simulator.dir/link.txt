@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f CMakeFiles\network_simulator.dir/objects.a
-C:\ProgramData\mingw64\mingw64\bin\ar.exe qc CMakeFiles\network_simulator.dir/objects.a @CMakeFiles\network_simulator.dir\objects1.rsp
-C:\ProgramData\mingw64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\network_simulator.dir/objects.a -Wl,--no-whole-archive -o network_simulator.exe -Wl,--out-implib,libnetwork_simulator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\network_simulator.dir\linkLibs.rsp

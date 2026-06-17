@@ -37,7 +37,7 @@ std::optional<Packet> ConstantBitRateStrategy::generate(
     std::ostringstream oss;
     oss << "CBR-data@t=" << currentTime;
 
-    return Packet(srcMAC, dstMAC, srcIP, dstIP, oss.str(), payloadSize_);
+    return Packet(srcMAC, dstMAC, srcIP, dstIP, oss.str(), payloadSize_, currentTime);
 }
 
 // =============================================================================
@@ -99,7 +99,7 @@ std::optional<Packet> BurstyStrategy::generate(
     std::ostringstream oss;
     oss << "BURST[" << sentInBurst_ << "/" << burstSize_ << "]@t=" << currentTime;
 
-    Packet pkt(srcMAC, dstMAC, srcIP, dstIP, oss.str(), payloadSize_);
+    Packet pkt(srcMAC, dstMAC, srcIP, dstIP, oss.str(), payloadSize_, currentTime);
 
     // Проверяем: это был последний пакет в пачке?
     if (sentInBurst_ >= burstSize_) {

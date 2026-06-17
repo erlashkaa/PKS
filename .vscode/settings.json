@@ -1,0 +1,5 @@
+{
+  "terminal.integrated.env.windows": {
+    "Path": "C:\\Program Files\\CMake\\bin;C:\\ProgramData\\mingw64\\mingw64\\bin;C:\\Users\\gabdu\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Ninja-build.Ninja_Microsoft.Winget.Source_8wekyb3d8bbwe;${env:Path}"
+  }
+}

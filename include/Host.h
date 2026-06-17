@@ -33,6 +33,11 @@ public:
     // Счётчики для хоста
     int getSentCount()     const { return sentCount_;     }
     int getReceivedCount() const { return receivedCount_; }
+    int getDroppedCount()  const { return droppedCount_;  }
+    size_t getSendQueueSize() const { return sendQueue_.size(); }
+
+    // Проверить наличие стратегии
+    bool hasTrafficStrategy() const { return strategy_ != nullptr; }
 
 private:
     std::shared_ptr<ITrafficGenerationStrategy> strategy_; // Стратегия генерации
@@ -48,4 +53,6 @@ private:
 
     int sentCount_     = 0;
     int receivedCount_ = 0;
+    int droppedCount_  = 0;
+    int currentPacketRetries_ = 0;
 };

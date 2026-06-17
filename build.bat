@@ -14,7 +14,8 @@ echo.
 REM --- Collect all .cpp files ---
 set SOURCES=src\Packet.cpp src\Node.cpp src\Host.cpp src\Router.cpp ^
             src\CSMACDMedium.cpp src\StatisticsCollector.cpp ^
-            src\TrafficStrategies.cpp src\NodeFactory.cpp ^
+            src\TrafficStrategies.cpp src\PoissonStrategy.cpp ^
+            src\NetworkVisualizer.cpp src\NodeFactory.cpp ^
             src\SimulationFacade.cpp src\main.cpp
 
 set INCLUDES=-Iinclude

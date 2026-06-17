@@ -1,0 +1,206 @@
+[
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Packet.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Packet.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Packet.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Packet.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Node.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Node.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Node.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Node.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Host.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Host.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Host.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Host.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\Router.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Router.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Router.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/Router.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\CSMACDMedium.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\CSMACDMedium.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/CSMACDMedium.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/CSMACDMedium.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\StatisticsCollector.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\StatisticsCollector.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/StatisticsCollector.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/StatisticsCollector.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\TrafficStrategies.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\TrafficStrategies.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/TrafficStrategies.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/TrafficStrategies.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\PoissonStrategy.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\PoissonStrategy.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/PoissonStrategy.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/PoissonStrategy.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\NetworkVisualizer.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\NetworkVisualizer.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/NetworkVisualizer.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/NetworkVisualizer.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\NodeFactory.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\NodeFactory.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/NodeFactory.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/NodeFactory.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\SimulationFacade.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\SimulationFacade.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/SimulationFacade.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/SimulationFacade.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/network_simulator.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\network_simulator.dir\\src\\main.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\main.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/main.cpp",
+  "output": "CMakeFiles/network_simulator.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/googletest-build/googlemock",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Wpedantic -o CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c C:\\tmp\\netsim_deps\\googletest-src\\googlemock\\src\\gmock-all.cc",
+  "file": "C:/tmp/netsim_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/googletest-build/googlemock",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock_main.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Wpedantic -o CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c C:\\tmp\\netsim_deps\\googletest-src\\googlemock\\src\\gmock_main.cc",
+  "file": "C:/tmp/netsim_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/googletest-build/googletest",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Wpedantic -o CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c C:\\tmp\\netsim_deps\\googletest-src\\googletest\\src\\gtest-all.cc",
+  "file": "C:/tmp/netsim_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/googletest-build/googletest",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest_main.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Wpedantic -o CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c C:\\tmp\\netsim_deps\\googletest-src\\googletest\\src\\gtest_main.cc",
+  "file": "C:/tmp/netsim_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\Packet.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Packet.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Packet.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/Packet.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\Node.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Node.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Node.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/Node.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\Host.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Host.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Host.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/Host.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\Router.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\Router.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/Router.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/Router.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\CSMACDMedium.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\CSMACDMedium.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/CSMACDMedium.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/CSMACDMedium.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\StatisticsCollector.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\StatisticsCollector.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/StatisticsCollector.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/StatisticsCollector.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\TrafficStrategies.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\TrafficStrategies.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/TrafficStrategies.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/TrafficStrategies.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\PoissonStrategy.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\PoissonStrategy.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/PoissonStrategy.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/PoissonStrategy.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\NetworkVisualizer.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\NetworkVisualizer.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/NetworkVisualizer.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/NetworkVisualizer.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\NodeFactory.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\NodeFactory.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/NodeFactory.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/NodeFactory.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/sim_core.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\sim_core.dir\\__\\src\\SimulationFacade.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\src\\SimulationFacade.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/src/SimulationFacade.cpp",
+  "output": "tests/CMakeFiles/sim_core.dir/__/src/SimulationFacade.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario1_simple_transfer.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario1_simple_transfer.dir\\scenarios\\scenario1_simple_transfer.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario1_simple_transfer.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario1_simple_transfer.cpp",
+  "output": "tests/CMakeFiles/scenario1_simple_transfer.dir/scenarios/scenario1_simple_transfer.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario2_collision.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario2_collision.dir\\scenarios\\scenario2_collision.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario2_collision.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario2_collision.cpp",
+  "output": "tests/CMakeFiles/scenario2_collision.dir/scenarios/scenario2_collision.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario3_routing.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario3_routing.dir\\scenarios\\scenario3_routing.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario3_routing.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario3_routing.cpp",
+  "output": "tests/CMakeFiles/scenario3_routing.dir/scenarios/scenario3_routing.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario4_heavy_load.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario4_heavy_load.dir\\scenarios\\scenario4_heavy_load.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario4_heavy_load.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario4_heavy_load.cpp",
+  "output": "tests/CMakeFiles/scenario4_heavy_load.dir/scenarios/scenario4_heavy_load.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario5_mixed_traffic.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario5_mixed_traffic.dir\\scenarios\\scenario5_mixed_traffic.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario5_mixed_traffic.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario5_mixed_traffic.cpp",
+  "output": "tests/CMakeFiles/scenario5_mixed_traffic.dir/scenarios/scenario5_mixed_traffic.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/scenario6_network_failure.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\scenario6_network_failure.dir\\scenarios\\scenario6_network_failure.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\scenarios\\scenario6_network_failure.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/scenarios/scenario6_network_failure.cpp",
+  "output": "tests/CMakeFiles/scenario6_network_failure.dir/scenarios/scenario6_network_failure.cpp.obj"
+},
+{
+  "directory": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/build/tests",
+  "command": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_tests.dir/includes_CXX.rsp -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\unit_tests.dir\\unit_tests.cpp.obj -c \"C:\\Users\\gabdu\\OneDrive\\Рабочий стол\\вуз\\пкс\\project\\tests\\unit_tests.cpp\"",
+  "file": "C:/Users/gabdu/OneDrive/Рабочий стол/вуз/пкс/project/tests/unit_tests.cpp",
+  "output": "tests/CMakeFiles/unit_tests.dir/unit_tests.cpp.obj"
+}
+]

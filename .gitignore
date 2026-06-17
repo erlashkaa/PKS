@@ -1,0 +1,5 @@
+build/
+network_simulator.exe
+*.obj
+*.o
+.cache/

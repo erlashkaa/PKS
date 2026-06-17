@@ -33,13 +33,17 @@ void Router::connectInterface(int interfaceId,
  *   4. Если маршрута нет — выбросить пакет (drop) с предупреждением.
  */
 void Router::receivePacket(const Packet& pkt) {
-    std::cout << "  [Router:" << name_ << "] получил пакет #" << pkt.id
-              << " [" << pkt.srcIP << " → " << pkt.dstIP << "]\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "  [Router:" << name_ << "] получил пакет #" << pkt.id
+                  << " [" << pkt.srcIP << " → " << pkt.dstIP << "]\n";
+    }
 
     // Если пакет адресован самому маршрутизатору — принять
     if (pkt.dstIP == ip_) {
-        std::cout << "  [Router:" << name_ << "] пакет #" << pkt.id
-                  << " предназначен мне, принят.\n";
+        if (SimulationParameters::getInstance().enableLogs) {
+            std::cout << "  [Router:" << name_ << "] пакет #" << pkt.id
+                      << " предназначен мне, принят.\n";
+        }
         return;
     }
 
@@ -47,38 +51,68 @@ void Router::receivePacket(const Packet& pkt) {
     const RouteEntry* route = findRoute(pkt.dstIP);
 
     if (!route) {
-        std::cout << "  [Router:" << name_ << "] ⚠ Нет маршрута для "
-                  << pkt.dstIP << " — пакет #" << pkt.id << " отброшен!\n";
+        if (SimulationParameters::getInstance().enableLogs) {
+            std::cout << "  [Router:" << name_ << "] ⚠ Нет маршрута для "
+                      << pkt.dstIP << " — пакет #" << pkt.id << " отброшен!\n";
+        }
         return;
     }
 
     // Найден маршрут — берём нужный интерфейс
     auto it = interfaces_.find(route->interfaceId);
     if (it == interfaces_.end()) {
-        std::cout << "  [Router:" << name_ << "] ⚠ Интерфейс "
-                  << route->interfaceId << " не подключён!\n";
+        if (SimulationParameters::getInstance().enableLogs) {
+            std::cout << "  [Router:" << name_ << "] ⚠ Интерфейс "
+                      << route->interfaceId << " не подключён!\n";
+        }
         return;
     }
 
-    std::cout << "  [Router:" << name_ << "] пересылает пакет #" << pkt.id
-              << " → " << pkt.dstIP
-              << " через интерфейс " << route->interfaceId << "\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << "  [Router:" << name_ << "] пересылает пакет #" << pkt.id
+                  << " → " << pkt.dstIP
+                  << " через интерфейс " << route->interfaceId << "\n";
+    }
 
     // Пересылаем пакет в среду через найденный интерфейс
     it->second->sendPacket(pkt, mac_, SimulationParameters::getInstance().currentTime);
 }
 
 /**
- * findRoute() — поиск подходящего маршрута (longest prefix match не реализован,
- * используется первое совпадение для простоты учебного кода).
+ * findRoute() — поиск подходящего маршрута по принципу Longest Prefix Match (LPM).
+ * Выбирает маршрут с наиболее специфичной маской (максимальным числом бит).
  */
 const RouteEntry* Router::findRoute(const std::string& dstIP) const {
+    // Вспомогательная лямбда для подсчета единичных бит в маске
+    auto countMaskBits = [](const std::string& mask) -> int {
+        std::array<int, 4> octets{};
+        std::istringstream ss(mask);
+        char dot;
+        ss >> octets[0] >> dot >> octets[1] >> dot
+           >> octets[2] >> dot >> octets[3];
+        int bits = 0;
+        for (int o : octets) {
+            while (o > 0) {
+                if (o & 1) bits++;
+                o >>= 1;
+            }
+        }
+        return bits;
+    };
+
+    const RouteEntry* bestRoute = nullptr;
+    int maxBits = -1;
+
     for (const auto& entry : routingTable_) {
         if (matchNetwork(dstIP, entry.network, entry.mask)) {
-            return &entry;
+            int bits = countMaskBits(entry.mask);
+            if (bits >= maxBits) {
+                maxBits = bits;
+                bestRoute = &entry;
+            }
         }
     }
-    return nullptr;
+    return bestRoute;
 }
 
 /**

@@ -53,6 +53,9 @@ public:
     // Проверить, свободен ли канал прямо сейчас
     bool isIdle() const { return !isBusy_; }
 
+    // Рассчитать время передачи пакета (в секундах)
+    double calcTransmissionTime(const Packet& pkt) const;
+
     // ---- Observer API ----
     // Подписать наблюдателя на события среды
     void subscribe(std::shared_ptr<IObserver> observer);
@@ -78,7 +81,4 @@ private:
 
     // Уведомить всех подписчиков о событии
     void notify(MediumEvent event, const Packet& pkt);
-
-    // Рассчитать время передачи пакета (в секундах)
-    double calcTransmissionTime(const Packet& pkt) const;
 };

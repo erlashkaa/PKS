@@ -1,5 +1,6 @@
 #include "CSMACDMedium.h"
 #include "Node.h"
+#include "Host.h"
 #include "SimulationParameters.h"
 #include <iostream>
 #include <iomanip>
@@ -85,9 +86,22 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
     // только если в сети больше одного активного узла.
     bool collisionOccurred = false;
     if (nodes_.size() > 1) {
-        // Симулируем случайную коллизию (в реальной системе — детектируется аппаратно)
-        int randVal = std::rand() % 100;
-        collisionOccurred = (randVal < 15); // 15% вероятность коллизии
+        // Подсчитаем число активных отправителей (хостов с настроенной стратегией)
+        int activeSenders = 0;
+        for (const auto& weakNode : nodes_) {
+            if (auto node = weakNode.lock()) {
+                auto host = std::dynamic_pointer_cast<Host>(node);
+                if (host && host->hasTrafficStrategy()) {
+                    activeSenders++;
+                }
+            }
+        }
+        
+        // Коллизия возможна только при наличии нескольких активных отправителей на одном сегменте
+        if (activeSenders > 1) {
+            int randVal = std::rand() % 100;
+            collisionOccurred = (randVal < 15); // 15% вероятность коллизии
+        }
     }
 
     if (collisionOccurred) {
@@ -100,10 +114,12 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
         int slots    = std::rand() % maxSlots;
         double backoff = slots * params.backoffSlot;
 
-        std::cout << std::fixed << std::setprecision(3)
-                  << "[t=" << currentTime << "] *** КОЛЛИЗИЯ в ["
-                  << name_ << "] пакет #" << pkt.id
-                  << " | backoff=" << backoff << "с\n";
+        if (params.enableLogs) {
+            std::cout << std::fixed << std::setprecision(3)
+                      << "[t=" << currentTime << "] *** КОЛЛИЗИЯ в ["
+                      << name_ << "] пакет #" << pkt.id
+                      << " | backoff=" << backoff << "с\n";
+        }
 
         // Канал занят на время backoff (узлы должны подождать)
         busyUntil_ = currentTime + backoff;
@@ -115,12 +131,14 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
     }
 
     // Шаг 4: Успешная передача
-    std::cout << std::fixed << std::setprecision(3)
-              << "[t=" << currentTime << "] [" << name_
-              << "] передаёт пакет #" << pkt.id
-              << " от " << senderMAC
-              << " [" << pkt.srcIP << " → " << pkt.dstIP << "]"
-              << " (займёт " << txTime * 1000 << " мс)\n";
+    if (SimulationParameters::getInstance().enableLogs) {
+        std::cout << std::fixed << std::setprecision(3)
+                  << "[t=" << currentTime << "] [" << name_
+                  << "] передаёт пакет #" << pkt.id
+                  << " от " << senderMAC
+                  << " [" << pkt.srcIP << " → " << pkt.dstIP << "]"
+                  << " (займёт " << txTime * 1000 << " мс)\n";
+    }
 
     notify(MediumEvent::PACKET_SENT, pkt);
 

@@ -19,16 +19,8 @@ void Host::setDestination(const std::string& dstIP, const std::string& dstMAC) {
     dstMAC_ = dstMAC;
 }
 
-/**
- * tick() — вызывается на каждом шаге симуляции.
- *
- * Логика:
- *   1. Если задана стратегия — спросить у неё, нужно ли генерировать пакет.
- *   2. Если пакет сгенерирован — положить его в очередь отправки.
- *   3. Попытаться отправить первый пакет из очереди.
- */
+
 void Host::tick(double currentTime) {
-    // Шаг 1-2: Генерация пакета по стратегии
     if (strategy_ && !dstIP_.empty()) {
         auto maybePkt = strategy_->generate(
             currentTime, mac_, ip_, dstMAC_, dstIP_);
@@ -36,8 +28,6 @@ void Host::tick(double currentTime) {
             sendQueue_.push(maybePkt.value());
         }
     }
-
-    // Шаг 3: Попытаться отправить
     trySend(currentTime);
 }
 
@@ -52,14 +42,10 @@ void Host::tick(double currentTime) {
  */
 void Host::trySend(double currentTime) {
     if (sendQueue_.empty() || !medium_) return;
-
-    // CSMA: Carrier Sense — проверяем, свободен ли канал
     if (!medium_->isIdle()) {
-        // Канал занят — ждём, не делаем ничего в этом тике
         return;
     }
 
-    // Канал свободен — отправляем пакет
     const Packet& pkt = sendQueue_.front();
 
     if (SimulationParameters::getInstance().enableLogs) {
@@ -73,12 +59,10 @@ void Host::trySend(double currentTime) {
     bool accepted = medium_->sendPacket(pkt, mac_, currentTime);
 
     if (accepted) {
-        // Пакет принят средой — убираем из очереди
         sendQueue_.pop();
         ++sentCount_;
-        currentPacketRetries_ = 0; // Сброс
+        currentPacketRetries_ = 0;
     } else {
-        // Если не принят (коллизия внутри sendPacket) — считаем попытки
         currentPacketRetries_++;
         if (currentPacketRetries_ >= SimulationParameters::getInstance().maxRetries) {
             if (SimulationParameters::getInstance().enableLogs) {
@@ -87,21 +71,15 @@ void Host::trySend(double currentTime) {
                           << " ⚠ Пакет #" << pkt.id << " отброшен после "
                           << currentPacketRetries_ << " коллизий!\n";
             }
-            sendQueue_.pop();          // Отбрасываем пакет
-            ++droppedCount_;           // Счётчик дропов
-            currentPacketRetries_ = 0; // Сброс для следующего пакета
+            sendQueue_.pop();        
+            ++droppedCount_;           
+            currentPacketRetries_ = 0; 
         }
     }
 }
 
-/**
- * receivePacket() — обрабатывает входящий пакет.
- * Хост проверяет, что пакет адресован ему (по IP),
- * и выводит сообщение о получении.
- */
 void Host::receivePacket(const Packet& pkt) {
     if (pkt.dstIP != ip_ && pkt.dstMAC != mac_) {
-        // Пакет не для нас (широковещательная среда — слышат все)
         return;
     }
     ++receivedCount_;

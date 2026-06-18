@@ -8,14 +8,12 @@ SimulationFacade::SimulationFacade() {
     stats_ = std::make_shared<StatisticsCollector>();
 }
 
-// ---- Построение топологии ----
 
 std::shared_ptr<Host> SimulationFacade::addHost(
     const std::string& name,
     const std::string& mac,
     const std::string& ip)
 {
-    // Используем фабрику (Factory Method) для создания узла
     auto node = NodeFactory::createNode("host", name, mac, ip);
     auto host = std::dynamic_pointer_cast<Host>(node);
     hosts_.push_back(host);
@@ -67,9 +65,7 @@ void SimulationFacade::connectNodeToMedium(
     std::shared_ptr<Node>         node,
     std::shared_ptr<CSMACDMedium> medium)
 {
-    // Подключаем узел к среде в обоих направлениях:
-    //  - узел знает о среде (через connectTo) → может отправлять
-    //  - среда знает об узле (через attachNode) → может доставлять
+
     node->connectTo(medium);
     medium->attachNode(node);
 
@@ -84,7 +80,6 @@ void SimulationFacade::connectRouterInterface(
     int                           interfaceId,
     std::shared_ptr<CSMACDMedium> medium)
 {
-    // Для маршрутизатора: подключаем конкретный интерфейс к среде
     router->connectInterface(interfaceId, medium);
     medium->attachNode(router);
 
@@ -95,19 +90,7 @@ void SimulationFacade::connectRouterInterface(
     }
 }
 
-// ---- Управление симуляцией ----
 
-/**
- * startSimulation() — главный цикл симуляции (паттерн Facade).
- *
- * Скрывает от пользователя детали реализации:
- *   1. Настраивает параметры из Singleton (SimulationParameters)
- *   2. Запускает цикл тиков
- *   3. На каждом тике:
- *      a. Обновляет все среды (освобождает каналы)
- *      b. Вызывает tick() у всех хостов (генерация трафика + отправка)
- *   4. Выводит разделители для удобства чтения лога
- */
 void SimulationFacade::startSimulation(double durationSeconds) {
     auto& params = SimulationParameters::getInstance();
 
@@ -128,17 +111,14 @@ void SimulationFacade::startSimulation(double durationSeconds) {
         std::cout << "════════════════════════════════════════════\n\n";
     }
 
-    // Главный цикл симуляции
     for (long long tick = 0; tick < totalTicks && running_; ++tick) {
         currentTime_ = tick * tickStep;
         params.currentTime = currentTime_;
 
-        // Шаг a: Обновляем все среды передачи
         for (auto& medium : media_) {
             medium->tick(currentTime_);
         }
 
-        // Шаг b: Все хосты действуют (генерируют трафик и пытаются отправить)
         for (auto& host : hosts_) {
             host->tick(currentTime_);
         }
@@ -162,7 +142,6 @@ void SimulationFacade::stopSimulation() {
 
 void SimulationFacade::printStats() const {
     if (SimulationParameters::getInstance().enableLogs) {
-        // Выводим статистику из хостов
         std::cout << "\n--- Статистика хостов ---\n";
         for (const auto& host : hosts_) {
             std::cout << "  " << host->getName()
@@ -170,7 +149,6 @@ void SimulationFacade::printStats() const {
                       << " | Получено: "   << host->getReceivedCount() << "\n";
         }
 
-        // Выводим агрегированную статистику среды (Observer)
         stats_->printReport();
     }
 }

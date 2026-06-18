@@ -19,7 +19,6 @@ std::shared_ptr<Node> NodeFactory::createNode(
     const std::string& mac,
     const std::string& ip)
 {
-    // Приводим тип к нижнему регистру для удобства (case-insensitive)
     std::string ltype = type;
     std::transform(ltype.begin(), ltype.end(), ltype.begin(), ::tolower);
 

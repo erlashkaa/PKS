@@ -25,12 +25,7 @@ void CSMACDMedium::subscribe(std::shared_ptr<IObserver> observer) {
     observers_.push_back(observer);
 }
 
-/**
- * tick() — обновляет состояние среды.
- *
- * Вызывается SimulationFacade на каждом шаге симуляции.
- * Если время передачи истекло — освобождаем канал.
- */
+
 void CSMACDMedium::tick(double currentTime) {
     if (isBusy_ && currentTime >= busyUntil_) {
         isBusy_            = false;
@@ -38,12 +33,7 @@ void CSMACDMedium::tick(double currentTime) {
     }
 }
 
-/**
- * calcTransmissionTime() — время передачи пакета (в секундах).
- *
- * Формула: T_передачи = размер_пакета_в_битах / пропускная_способность
- *          T_полное    = T_передачи + задержка_распространения
- */
+
 double CSMACDMedium::calcTransmissionTime(const Packet& pkt) const {
     double transmitTime = (pkt.sizeBytes * 8.0) / bandwidth_;
     return transmitTime + propagDelay_;
@@ -68,25 +58,18 @@ double CSMACDMedium::calcTransmissionTime(const Packet& pkt) const {
 bool CSMACDMedium::sendPacket(const Packet& pkt,
                                const std::string& senderMAC,
                                double currentTime) {
-    // Шаг 1: Carrier Sense
+
     if (isBusy_) {
-        return false; // Канал занят — подождём
+        return false; 
     }
 
-    // Шаг 2: Начинаем передачу — захватываем канал
     double txTime  = calcTransmissionTime(pkt);
     isBusy_        = true;
     busyUntil_     = currentTime + txTime;
     transmittingCount_++;
 
-    // Шаг 3: Collision Detection (упрощённо — симулируется вероятностью)
-    // В реальном CSMA/CD коллизия происходит, если второй узел начал передачу
-    // до того, как сигнал первого дошёл до него (collision window = 2*propagDelay).
-    // Здесь имитируем коллизию случайно с вероятностью ~15%,
-    // только если в сети больше одного активного узла.
     bool collisionOccurred = false;
     if (nodes_.size() > 1) {
-        // Подсчитаем число активных отправителей (хостов с настроенной стратегией)
         int activeSenders = 0;
         for (const auto& weakNode : nodes_) {
             if (auto node = weakNode.lock()) {
@@ -97,20 +80,15 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
             }
         }
         
-        // Коллизия возможна только при наличии нескольких активных отправителей на одном сегменте
         if (activeSenders > 1) {
             int randVal = std::rand() % 100;
-            collisionOccurred = (randVal < 15); // 15% вероятность коллизии
+            collisionOccurred = (randVal < 15); 
         }
     }
 
     if (collisionOccurred) {
-        // ---- Коллизия! ----
         auto& params = SimulationParameters::getInstance();
-
-        // Binary Exponential Backoff: backoff = rand(0, 2^attempt) * slot
-        // Для упрощения используем attempt=1 (первая коллизия)
-        int maxSlots = 4; // 2^attempt (attempt=2 как пример)
+        int maxSlots = 4; 
         int slots    = std::rand() % maxSlots;
         double backoff = slots * params.backoffSlot;
 
@@ -120,17 +98,12 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
                       << name_ << "] пакет #" << pkt.id
                       << " | backoff=" << backoff << "с\n";
         }
-
-        // Канал занят на время backoff (узлы должны подождать)
         busyUntil_ = currentTime + backoff;
-
-        // Уведомляем наблюдателей о коллизии
         notify(MediumEvent::COLLISION_DETECTED, pkt);
-
-        return false; // Узел должен повторить попытку
+        return false; 
     }
 
-    // Шаг 4: Успешная передача
+    //  Успешная передача
     if (SimulationParameters::getInstance().enableLogs) {
         std::cout << std::fixed << std::setprecision(3)
                   << "[t=" << currentTime << "] [" << name_
@@ -146,7 +119,6 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
     for (auto& weakNode : nodes_) {
         if (auto node = weakNode.lock()) {
             if (node->getMAC() != senderMAC) {
-                // Каждый узел сам решает, принимать ли пакет
                 node->receivePacket(pkt);
             }
         }
@@ -157,9 +129,6 @@ bool CSMACDMedium::sendPacket(const Packet& pkt,
     return true;
 }
 
-/**
- * notify() — уведомляет всех подписанных наблюдателей о событии.
- */
 void CSMACDMedium::notify(MediumEvent event, const Packet& pkt) {
     for (auto& obs : observers_) {
         obs->onEvent(event, pkt);
